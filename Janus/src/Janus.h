@@ -1,8 +1,9 @@
 #pragma once
 
 // For use by Janus applications
-#include <stdio.h>
+
 #include "Janus/Application.h"
+#include "Janus/Log.h"
 
 // ---Entry Point-------------------
 // ---------------------------------
