@@ -1,4 +1,4 @@
-#include <Janus.h>
+#include <Janus/Janus.h>
 
 class Sandbox : public Janus::Application
 {

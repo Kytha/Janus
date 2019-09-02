@@ -1,6 +1,6 @@
 #pragma once
-#include "Core.h"
-
+#include "Janus/Core.h"
+#include "Events/Event.h"
 namespace Janus {
 	class JANUS_API Application
 	{
