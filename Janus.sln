@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{AEEFE0ED-C023-4C5E-9403-6E4BADD1C5C8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Janus", "Janus\Janus.vcxproj", "{C741B8C0-E4D2-4F9A-98BF-5855D40D680D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C741B8C0-E4D2-4F9A-98BF-5855D40D680D}.Debug|x64.ActiveCfg = Debug|x64
+		{C741B8C0-E4D2-4F9A-98BF-5855D40D680D}.Debug|x64.Build.0 = Debug|x64
+		{C741B8C0-E4D2-4F9A-98BF-5855D40D680D}.Release|x64.ActiveCfg = Release|x64
+		{C741B8C0-E4D2-4F9A-98BF-5855D40D680D}.Release|x64.Build.0 = Release|x64
+		{AEEFE0ED-C023-4C5E-9403-6E4BADD1C5C8}.Debug|x64.ActiveCfg = Debug|x64
+		{AEEFE0ED-C023-4C5E-9403-6E4BADD1C5C8}.Debug|x64.Build.0 = Debug|x64
+		{AEEFE0ED-C023-4C5E-9403-6E4BADD1C5C8}.Release|x64.ActiveCfg = Release|x64
+		{AEEFE0ED-C023-4C5E-9403-6E4BADD1C5C8}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A77F68C2-C2F0-46D7-81D3-03C1F0922F7F}
+	EndGlobalSection
+EndGlobal
