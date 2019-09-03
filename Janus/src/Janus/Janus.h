@@ -4,6 +4,7 @@
 
 #include "Janus/Application.h"
 #include "Janus/Log.h"
+#include "Janus/Layer.h"
 
 // ---Entry Point-------------------
 // ---------------------------------

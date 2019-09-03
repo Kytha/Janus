@@ -1,31 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Events">
-      <UniqueIdentifier>{3A8963B1-262B-8E87-0FE6-A1DBFB2615D8}</UniqueIdentifier>
+    <Filter Include="Janus">
+      <UniqueIdentifier>{A629710D-123E-99BE-DBBF-3C1E479395EF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Janus\Events">
+      <UniqueIdentifier>{CABE8EED-B621-1E92-5FA7-56484BE9E914}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Janus\Platform">
+      <UniqueIdentifier>{BAA057A8-A66E-4BAE-8F02-BCD47B6F2713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Janus\Platform\WIndows">
+      <UniqueIdentifier>{D450CAB3-C04A-F305-A9B7-891695505972}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Janus\Application.h" />
-    <ClInclude Include="src\Janus\Core.h" />
-    <ClInclude Include="src\Janus\EntryPoint.h" />
+    <ClInclude Include="src\Janus\Application.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\Core.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\EntryPoint.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
     <ClInclude Include="src\Janus\Events\ApplicationEvent.h">
-      <Filter>Events</Filter>
+      <Filter>Janus\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Janus\Events\Event.h">
-      <Filter>Events</Filter>
+      <Filter>Janus\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Janus\Events\KeyEvent.h">
-      <Filter>Events</Filter>
+      <Filter>Janus\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Janus\Events\MouseEvent.h">
-      <Filter>Events</Filter>
+      <Filter>Janus\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Janus\Janus.h" />
-    <ClInclude Include="src\Janus\Log.h" />
+    <ClInclude Include="src\Janus\Janus.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\Layer.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\LayerStack.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\Log.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\Platform\WIndows\WindowsWindow.h">
+      <Filter>Janus\Platform\WIndows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\Window.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\jnpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Janus\Application.cpp" />
-    <ClCompile Include="src\Janus\Log.cpp" />
+    <ClCompile Include="src\Janus\Application.cpp">
+      <Filter>Janus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Janus\Layer.cpp">
+      <Filter>Janus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Janus\LayerStack.cpp">
+      <Filter>Janus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Janus\Log.cpp">
+      <Filter>Janus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Janus\Platform\WIndows\WindowsWindow.cpp">
+      <Filter>Janus\Platform\WIndows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\jnpch.cpp" />
   </ItemGroup>
 </Project>

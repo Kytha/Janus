@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Janus/Events/Event.h"
-
 #include <sstream>
+
 
 namespace Janus {
 	class JANUS_API WindowResizeEvent : public Event
@@ -17,9 +17,10 @@ namespace Janus {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "WindowResizedEvent: " << m_Width << ", " << m_Height;
+			ss << "WindowResizeEvent: " << m_Width << ", " << m_Height;
 			return ss.str();
 		}
+
 		EVENT_CLASS_TYPE(WindowResize)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 

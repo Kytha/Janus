@@ -10,6 +10,14 @@ workspace "Janus"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (soltion directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Janus/vendor/GLFW/include"
+IncludeDir["Glad"] = "Janus/vendor/Glad/include"
+
+include "Janus/vendor/GLFW"
+include "Janus/vendor/Glad"
+
 project "Janus"
 	location "Janus"
 	kind "SharedLib"
@@ -17,6 +25,9 @@ project "Janus"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "jnpch.h"
+	pchsource "Janus/src/jnpch.cpp"
 
 	files
 	{
@@ -27,7 +38,16 @@ project "Janus"
 	includedirs
 	{
 		"%{prj.name}/src/",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
+	}
+	
+	links
+	{
+		"GLFW",
+		"Glad",
+		"opengl32.lib",
 	}
 
 	filter "system:windows"
@@ -38,7 +58,8 @@ project "Janus"
 		defines
 		{
 			"JN_PLATFORM_WINDOWS",
-			"JN_BUILD_DLL"
+			"JN_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -48,14 +69,17 @@ project "Janus"
 
 	filter "configurations:Debug"
 		defines "JN_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "JN_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "JN_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -94,12 +118,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "JN_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "JN_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "JN_DIST"
+		buildoptions "/MD"
 		optimize "On"
