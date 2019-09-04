@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>jnpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>JN_PLATFORM_WINDOWS;JN_BUILD_DLL;GLFW_INCLUDE_NONE;JN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>jnpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>JN_PLATFORM_WINDOWS;JN_BUILD_DLL;GLFW_INCLUDE_NONE;JN_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>jnpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>JN_PLATFORM_WINDOWS;JN_BUILD_DLL;GLFW_INCLUDE_NONE;JN_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -159,19 +159,28 @@
     <ClInclude Include="src\Janus\Events\Event.h" />
     <ClInclude Include="src\Janus\Events\KeyEvent.h" />
     <ClInclude Include="src\Janus\Events\MouseEvent.h" />
+    <ClInclude Include="src\Janus\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Janus\Input.h" />
     <ClInclude Include="src\Janus\Janus.h" />
+    <ClInclude Include="src\Janus\KeyCodes.h" />
     <ClInclude Include="src\Janus\Layer.h" />
     <ClInclude Include="src\Janus\LayerStack.h" />
     <ClInclude Include="src\Janus\Log.h" />
+    <ClInclude Include="src\Janus\MouseButtonCodes.h" />
+    <ClInclude Include="src\Janus\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Janus\Platform\WIndows\WindowsInput.h" />
     <ClInclude Include="src\Janus\Platform\WIndows\WindowsWindow.h" />
     <ClInclude Include="src\Janus\Window.h" />
     <ClInclude Include="src\jnpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Janus\Application.cpp" />
+    <ClCompile Include="src\Janus\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Janus\Layer.cpp" />
     <ClCompile Include="src\Janus\LayerStack.cpp" />
     <ClCompile Include="src\Janus\Log.cpp" />
+    <ClCompile Include="src\Janus\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Janus\Platform\WIndows\WindowsInput.cpp" />
     <ClCompile Include="src\Janus\Platform\WIndows\WindowsWindow.cpp" />
     <ClCompile Include="src\jnpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -183,6 +192,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\Glad\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\ImGui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

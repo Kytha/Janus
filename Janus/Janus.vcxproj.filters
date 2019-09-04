@@ -7,8 +7,14 @@
     <Filter Include="Janus\Events">
       <UniqueIdentifier>{CABE8EED-B621-1E92-5FA7-56484BE9E914}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Janus\ImGui">
+      <UniqueIdentifier>{50C3370F-BC78-B004-456D-AADBB121A708}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Janus\Platform">
       <UniqueIdentifier>{BAA057A8-A66E-4BAE-8F02-BCD47B6F2713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Janus\Platform\OpenGL">
+      <UniqueIdentifier>{AEF4B4AF-1A61-70AA-E354-08084F809212}</UniqueIdentifier>
     </Filter>
     <Filter Include="Janus\Platform\WIndows">
       <UniqueIdentifier>{D450CAB3-C04A-F305-A9B7-891695505972}</UniqueIdentifier>
@@ -36,6 +42,12 @@
     <ClInclude Include="src\Janus\Events\MouseEvent.h">
       <Filter>Janus\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Janus\ImGui\ImGuiLayer.h">
+      <Filter>Janus\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\Input.h">
+      <Filter>Janus</Filter>
+    </ClInclude>
     <ClInclude Include="src\Janus\Janus.h">
       <Filter>Janus</Filter>
     </ClInclude>
@@ -48,6 +60,12 @@
     <ClInclude Include="src\Janus\Log.h">
       <Filter>Janus</Filter>
     </ClInclude>
+    <ClInclude Include="src\Janus\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Janus\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Janus\Platform\WIndows\WindowsInput.h">
+      <Filter>Janus\Platform\WIndows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Janus\Platform\WIndows\WindowsWindow.h">
       <Filter>Janus\Platform\WIndows</Filter>
     </ClInclude>
@@ -55,10 +73,15 @@
       <Filter>Janus</Filter>
     </ClInclude>
     <ClInclude Include="src\jnpch.h" />
+    <ClInclude Include="src\Janus\KeyCodes.h" />
+    <ClInclude Include="src\Janus\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Janus\Application.cpp">
       <Filter>Janus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Janus\ImGui\ImGuiLayer.cpp">
+      <Filter>Janus\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Janus\Layer.cpp">
       <Filter>Janus</Filter>
@@ -68,6 +91,12 @@
     </ClCompile>
     <ClCompile Include="src\Janus\Log.cpp">
       <Filter>Janus</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Janus\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Janus\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Janus\Platform\WIndows\WindowsInput.cpp">
+      <Filter>Janus\Platform\WIndows</Filter>
     </ClCompile>
     <ClCompile Include="src\Janus\Platform\WIndows\WindowsWindow.cpp">
       <Filter>Janus\Platform\WIndows</Filter>

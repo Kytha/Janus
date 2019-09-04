@@ -4,3 +4,6 @@
 [submodule "Janus/vendor/GLFW"]
 	path = Janus/vendor/GLFW
 	url = https://github.com/thecherno/glfw
+[submodule "Janus/vendor/imgui"]
+	path = Janus/vendor/imgui
+	url = https://github.com/TheCherno/imgui

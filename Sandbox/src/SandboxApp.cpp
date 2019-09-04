@@ -11,12 +11,15 @@ public:
 
 	void OnUpdate() override
 	{
-		JN_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Janus::Event& event) override
 	{
-		JN_TRACE("{0}", event);
+		if (event.GetEventType() == Janus::EventType::KeyPressed)
+		{
+			Janus::KeyPressedEvent& e = (Janus::KeyPressedEvent&)event;
+			JN_TRACE("{}", (char)e.GetKeyCode());
+		}
 	}
 };
 
@@ -27,6 +30,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Janus::ImGuiLayer());
 	}
 
 	~Sandbox()

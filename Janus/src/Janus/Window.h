@@ -10,6 +10,7 @@ namespace Janus {
 		unsigned int Width;
 		unsigned int Height;
 
+		// DEFAULT WINDOW PROPERTIES
 		WindowProps(const std::string& title = "Janus Engine",
 			unsigned int width = 1280,
 			unsigned int height = 720)
@@ -34,9 +35,13 @@ namespace Janus {
 		virtual unsigned int GetHeight() const = 0;
 
 		// Window Attributes
+
+		// Callback to interface platform specific window events with Janus' event system 
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
+
+		virtual void* GetNativeWindow() const = 0;
 
 		static Window* Create(const WindowProps& props = WindowProps());
 	};

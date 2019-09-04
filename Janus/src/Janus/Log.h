@@ -13,6 +13,10 @@ namespace Janus {
 		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
 		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
 	private:
+		// Two different loggers
+		// s_CoreLogger is to be used by the Janus Engine
+		// s_ClientLogger is to be used by the client
+		// Improves readability of console message origin
 		static std::shared_ptr<spdlog::logger> s_CoreLogger;
 		static std::shared_ptr<spdlog::logger> s_ClientLogger;
 	};

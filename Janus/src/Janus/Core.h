@@ -18,4 +18,8 @@
 	#define JN_CORE_ASSERT(x, ...)
 #endif
 
+// Macro used to create bit codes for bit flagging systems
 #define BIT(x) (1 << x)
+
+// Function bind macro to improve readability when defining callbck functions
+#define JN_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
