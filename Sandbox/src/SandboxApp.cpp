@@ -1,4 +1,5 @@
 #include <Janus/Janus.h>
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Janus::Layer
 {
@@ -30,7 +31,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Janus::ImGuiLayer());
 	}
 
 	~Sandbox()

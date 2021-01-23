@@ -5,7 +5,8 @@
 #include "Janus/Events/MouseEvent.h"
 #include "Janus/Events/KeyEvent.h"
 
-#include <glad/glad.h>
+#include "Janus/Platform/OpenGL/OpenGLContext.h"
+#include <GLFW/glfw3.h>
 
 namespace Janus {
 	static bool s_GLFWInitialized = false;
@@ -48,11 +49,10 @@ namespace Janus {
 
 		// Create glfw window 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
 
-		// Get Hardware specific implementation of OpenGL 
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		JN_CORE_ASSERT(status, "Failed to initialize Glad!");
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+		//^
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 
 		SetVSync(true);
@@ -149,7 +149,8 @@ namespace Janus {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
+
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

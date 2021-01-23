@@ -14,3 +14,8 @@ namespace Janus {
 
 	};
 }
+
+#ifdef JN_PLATFORM_WINDOWS
+#define CREATE_WINDOWS_INPUT_INSTANCE //Input* Input::s_Instance = new WindowsInput();
+#define CREATE_WINDOWS_INPUT_INSTANCE 
+#endif

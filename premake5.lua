@@ -1,6 +1,7 @@
 workspace "Janus"
 	architecture "x64"
-	
+	startproject "Sandbox"
+
 	configurations
 	{
 		"Debug",
@@ -15,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Janus/vendor/GLFW/include"
 IncludeDir["Glad"] = "Janus/vendor/Glad/include"
 IncludeDir["ImGui"] = "Janus/vendor/ImGui"
+IncludeDir["glm"] = "Janus/vendor/glm"
 
 include "Janus/vendor/GLFW"
 include "Janus/vendor/Glad"
@@ -22,8 +24,10 @@ include "Janus/vendor/ImGui"
 
 project "Janus"
 	location "Janus"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -34,7 +38,14 @@ project "Janus"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -43,7 +54,8 @@ project "Janus"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}",
 	}
 	
 	links
@@ -55,8 +67,6 @@ project "Janus"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -66,32 +76,27 @@ project "Janus"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
-
 	filter "configurations:Debug"
 		defines "JN_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "JN_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "JN_DIST"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "On"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -105,7 +110,9 @@ project "Sandbox"
 	includedirs
 	{
 		"Janus/vendor/spdlog/include",
-		"Janus/src"
+		"Janus/src",
+		"%{IncludeDir.glm}",
+		"Janus/vendor"
 	}
 
 	links {
@@ -122,15 +129,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "JN_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "JN_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "JN_DIST"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"

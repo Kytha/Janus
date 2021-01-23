@@ -1,10 +1,12 @@
 #pragma once
 #include "Janus/Core.h"
 namespace Janus {
-
+	// The Input class is a signleton and should only have once instance
+	// Used for input polling
 	class JANUS_API Input
 	{
 	public:
+		// API for access platform specific implementation
 		inline static bool IsKeyPressed(int keycode) {
 			return s_Instance->IsKeyPressedImpl(keycode);
 		}
@@ -21,6 +23,7 @@ namespace Janus {
 			return s_Instance->GetMouseXImpl();
 		}
 	protected:
+		// Interface for platform specific input handling
 		virtual bool IsKeyPressedImpl(int keycode) = 0;
 		virtual bool IsMouseButtonPressedImpl(int button) = 0;
 		virtual std::pair<float, float> GetMousePositionImpl() = 0;

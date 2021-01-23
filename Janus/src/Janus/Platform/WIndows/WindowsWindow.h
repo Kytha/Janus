@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Janus/Window.h"
-
+#include "Janus/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>
 
 
@@ -31,6 +31,7 @@ namespace Janus {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

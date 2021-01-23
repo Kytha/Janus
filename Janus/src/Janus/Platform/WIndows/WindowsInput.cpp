@@ -3,10 +3,17 @@
 #include <GLFW/glfw3.h>
 #include "Janus/Application.h"
 
+
+
 namespace Janus {
 
+	// TEMP
+	// Static decleration of input instance for Windows platform. 
 	Input* Input::s_Instance = new WindowsInput();
+	CREATE_WINDOWS_INPUT_INSTANCE
 
+	// Input polling windows implementations
+	// Interfaces with glfw
 
 	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{
