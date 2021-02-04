@@ -3,9 +3,8 @@
 
 #include "Janus/Log.h"
 
-#include <glad/glad.h>
-
 #include "Input.h"
+#include "Renderer/Renderer.h";
 
 namespace Janus {
 
@@ -161,16 +160,19 @@ namespace Janus {
 	{
 		// MAIN APP LOOP
 		while (m_Running) {
-			glClearColor(0.34, 0.52, 0.77, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+
+			RenderCommand::SetClearColor({ 0.34f, 0.52f, 0.77f, 1 });
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
 
 			m_Shader2->Bind();
-			m_SquareVA->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_SquareVA);
 
 			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_VertexArray);
+
+			Renderer::EndScene();
 
 			// Update all layers
 			for (Layer* layer : m_LayerStack)
