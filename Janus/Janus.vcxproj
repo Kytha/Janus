@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="src\Janus\Application.h" />
     <ClInclude Include="src\Janus\Core.h" />
+    <ClInclude Include="src\Janus\Core\Timestep.h" />
     <ClInclude Include="src\Janus\EntryPoint.h" />
     <ClInclude Include="src\Janus\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Janus\Events\Event.h" />

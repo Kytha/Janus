@@ -1224,6 +1224,8 @@
     <ClInclude Include="src\Janus\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Janus\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Janus\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Janus\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Janus\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Janus\Application.cpp">
@@ -1265,5 +1267,6 @@
     <ClCompile Include="src\Janus\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Janus\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Janus\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Janus\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>

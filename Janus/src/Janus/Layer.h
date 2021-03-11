@@ -2,6 +2,7 @@
 
 #include "Janus/Core.h"
 #include "Janus/Events/Event.h"
+#include "Janus/Core/Timestep.h"
 
 namespace Janus {
 	class JANUS_API Layer
@@ -14,7 +15,7 @@ namespace Janus {
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
 
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 
 		// Entry point for layer-level event handling
 		virtual void OnEvent(Event& event) {}

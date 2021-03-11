@@ -1,16 +1,11 @@
 #pragma once
 #include "Janus/Core.h"
-
+#include "Janus/Core/Timestep.h"
 #include "Window.h"
 #include "Events/Event.h"
 #include "LayerStack.h"
 #include "ImGui/ImGuiLayer.h"
 #include "Janus/Events/ApplicationEvent.h"
-
-#include "Janus/Renderer/Buffer.h"
-#include "Janus/Renderer/Shader.h"
-#include "Janus/Renderer/VertexArray.h";
-#include "Renderer/OrthographicCamera.h";
 
 namespace Janus {
 
@@ -41,15 +36,7 @@ namespace Janus {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<Shader> m_Shader2;
-
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
+		float m_LastFrameTime = 0.0f;
 	private:
 		// Pointer to the apps application object
 		static Application* s_Instance;
