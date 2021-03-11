@@ -7,3 +7,6 @@
 [submodule "Janus/vendor/imgui"]
 	path = Janus/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Janus/vendor/glm"]
+	path = Janus/vendor/glm
+	url = https://github.com/g-truc/glm
